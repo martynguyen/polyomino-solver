@@ -1,10 +1,13 @@
-# Polyomino Solver
+# Polyomino Calendar Puzzle Solver
 
-Try it [here](https://cemulate.github.io/polyomino-solver).
+This is largely the work of Chase Meadors and has had minor configuration adjustments to make it more user friendly for solving a specific polyomino puzzle popularized in calendar form.
+Try it [here](https://martynguyen.github.io/polyomino-solver).
+
+Try the original [here](https://cemulate.github.io/polyomino-solver).
 
 Construct a collection of standard and/or completely custom polyominos, and an arbitrary region to fit them in, and this web app will find and display a valid tiling that places all of the polyominos in the region (if it exists).
 
-It's a rewrite of a project I did a long time ago, focusing on using the latest and greatest web technologies (un-transpiled ES6, web components / custom elements, Webpack, Foundation 6's flexbox grid, etc.).
+It's a rewrite of a project Chase Meadors did a long time ago, focusing on using the latest and greatest web technologies (un-transpiled ES6, web components / custom elements, Webpack, Foundation 6's flexbox grid, etc.).
 
 # How it works
 
