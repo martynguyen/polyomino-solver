@@ -64,6 +64,7 @@ export default class Application {
           }, 1500);
         }
 
+/* Method Selection
         document.querySelectorAll('.method-select').forEach(node => {
             node.addEventListener('click', event => {
                 document.querySelectorAll('.method-select').forEach(node => node.checked = false);
@@ -78,6 +79,7 @@ export default class Application {
             solveButton.innerHTML = 'Loading Z3 ...';
             solveButton.classList.add('disabled');
         });
+*/
 
         this.worker = new SatSolverWorker();
         this.worker.onmessage = event => this.handleWorkerMessage(event);
@@ -105,8 +107,9 @@ export default class Application {
             });
         }
 
+/*
         // Size controls
-        document.getElementById('size-up-button').addEventListener('click', event => {
+	document.getElementById('size-up-button').addEventListener('click', event => {
             let el = document.getElementById('region-create');
             el.size += 1;
             if (el.size > 20) el.size = 20;
@@ -119,6 +122,7 @@ export default class Application {
             if (el.size < 2) el.size = 2;
             el.redraw();
         });
+*/
 
         // Solve button
         document.getElementById('solve-button').addEventListener('click', event => {
@@ -135,14 +139,16 @@ export default class Application {
 
             let region = new Polyomino(regionCoords);
 
-            let solveMethod = document.querySelector('.method-select:checked').id.split('-')[1];
+//            let solveMethod = document.querySelector('.method-select:checked').id.split('-')[1];
+            let solveMethod = 'dlx' 
 
             let polyProblem = new PolyominoProblem(polys, region);
-            let { convertedProblem, interpreter } =
+
+	    let { convertedProblem, interpreter } =
                 solveMethod == 'sat' ? polyProblem.convertToSAT() :
                 solveMethod == 'z3' ? polyProblem.convertToZ3() :
                 solveMethod == 'dlx' ? polyProblem.convertToDlx() :
-                polyProblem.convertToZ3();
+                polyProblem.convertToDlx();
 
             this.currentlySolving = { polyProblem, convertedProblem, interpreter };
 
